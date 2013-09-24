@@ -1,0 +1,57 @@
+<!-- EPAY START -->
+<div class="section-info">
+	<h3>ePay integration</h3>
+	<p>Configure the settings for the ePay integration below.</p>
+	<br/>
+</div>
+<table>
+	<tr>
+		<th>
+			<label for="epay_merchantnumber">Merchant number</label>
+		</th>
+		<td>
+			<input type="text" id="epay_merchantnumber" name="epay_merchantnumber" value="" />
+		</td>
+	</tr>      
+	<tr>
+		<th>
+			<label for="epay_buttonstyle">Additional CSS Style for "Finalize" button</label>
+		</th>
+		<td>
+			<input type="text" id="epay_buttonstyle" name="epay_buttonstyle" value="" />
+		</td>
+	</tr>  
+	<tr>
+		<th>
+			<label for="epay_buttontext">Text for "Finalize" button</label>
+		</th>
+		<td>
+			<input type="text" id="epay_buttontext" name="epay_buttontext" value=""/>
+		</td>
+	</tr>     
+	<tr>
+		<th>
+			<label for="epay_onleavetext">Text to display when a customer tries to leave the Thank You page<br/>without submitting the order to ePay<br/>(NOTE: This is handled differently across browsers)</label>
+		</th>
+		<td>
+			<input type="text" id="epay_onleavetext" name="epay_onleavetext" value=""/>
+		</td>
+	</tr>     
+	<tr>
+		<th>
+			<label for="epay_continueurl">Page to display when the ePay registration is complete</label>
+		</th>
+		<td>
+			<select class="page" name="epay_continueurl" id="epay_continueurl" />
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<label for="epay_cancelurl">Page to display if the ePay registration is abandoned</label>
+		</th>
+		<td>
+			<select class="page" name="epay_cancelurl" id="epay_cancelurl" />
+		</td>
+	</tr>
+</table>
+<!-- EPAY END -->

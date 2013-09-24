@@ -1,0 +1,8 @@
+{% if gateway == 'ePay' %}
+{{ "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" | script_tag }} 
+{{ "epay.js" | asset_url | script_tag }}
+<script>
+form_setdetails("{{ shop.url }}", "{{ shop.currency }}", "{{ order_number }}", "{{ total_price }}");
+$("#_form").submit();
+</script>
+{% endif %}

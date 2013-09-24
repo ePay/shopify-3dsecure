@@ -1,0 +1,39 @@
+var strbuffer="";
+var submitted = false;
+	
+function form_open(t) {
+	document.write("<form id='_form' action='"+t+"' method='post'>");
+}
+
+function form_close() {
+	document.write("<div id='buttons' style='{{ settings.epay_buttonstyle }}'><div style='display: none' id='_errormsg' class='severe-error'></div><input type='submit' value='{{ settings.epay_buttontext }}'/></div>");
+	document.write("</form>");
+}
+
+function form_write(name, value) {
+	document.write("<input type='hidden' id='_"+name+"' name='"+name+"' value='"+value+"'/>");
+}
+
+function form_field(name, value) {
+	form_write(name, value);
+	strbuffer=strbuffer+value; 
+}
+
+function form_setdetails(shop_url, ccy, orderid, amount) {
+    form_open("https://ssl.ditonlinebetalingssystem.dk/integration/ewindow/Default.aspx");
+    form_field("merchantnumber", "{{ settings.epay_merchantnumber }}");
+    form_field("orderid", orderid);
+    form_field("amount", amount);
+    form_field("currency", ccy);
+    form_field("windowstate", 3);
+    form_field("accepturl", shop_url+'/pages/{{ settings.epay_continueurl }}');
+    form_field("cancelurl", shop_url+'/pages/{{ settings.epay_cancelurl }}');
+	form_field("callbackurl", 'https://ssl.ditonlinebetalingssystem.dk/integration/shopify/callback/?merchantnumber={{ settings.epay_merchantnumber }}');
+    form_close();
+}
+
+$(document).ready(function() {
+	$("#_form").submit(function() {
+		submitted = true;
+	});
+});
